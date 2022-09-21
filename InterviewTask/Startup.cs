@@ -1,13 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net.Mime;
 
 namespace InterviewTask
 {
@@ -25,15 +22,15 @@ namespace InterviewTask
         {
             services.AddHttpClient<IRandomWordApiService, RandomWordApiService>(c =>
             {
-                c.BaseAddress = new Uri("https://random-words-api.vercel.app/");
-                c.DefaultRequestHeaders.Add("Accept", "application/json");
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("RandomWordApiLink"));
+                c.DefaultRequestHeaders.Add("Accept", MediaTypeNames.Application.Json);
             });
 
             services.AddHttpClient<IMusicBrainzApiService, MusicBrainzApiService>(c =>
             {
-                c.BaseAddress = new Uri("https://musicbrainz.org/ws/2/");
-                c.DefaultRequestHeaders.Add("Accept", "application/json");
-                c.DefaultRequestHeaders.Add("User-Agent", "InterviewTask/1.0.0 ( me@example.com )");
+                c.BaseAddress = new Uri(Configuration.GetValue<string>("MusicBrainzApiLink"));
+                c.DefaultRequestHeaders.Add("Accept", MediaTypeNames.Application.Json);
+                c.DefaultRequestHeaders.Add("User-Agent", Configuration.GetValue<string>("UserAgent"));
             });
 
             services.AddControllersWithViews();

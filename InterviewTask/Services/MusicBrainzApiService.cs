@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace InterviewTask
                 var response = await _httpClient.GetFromJsonAsync<SongResult>($"recording?query=name:{word}&limit=1");
                 return JSONDataConverter.SongResultToSong(response, word);
             }
-            catch(Exception ex) {
+            catch{
                 if (numOfRetries >= GlobalConstants.MaxRequestRetries)
                     throw;
                 await Task.Delay(1000);

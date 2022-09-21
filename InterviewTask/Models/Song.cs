@@ -2,13 +2,13 @@
 {
     public class Song
     {
-        public string Id { get; private set; }
-        public string Title { get; private set; }
-        public string Artist { get; private set; }
-        public string Album { get; private set; }
-        public string UsedWord { get; private set; }
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public string Album { get; set; }
+        public string UsedWord { get; set; }
 
-        public Song(string id = "N/A",  string title = "Record Not Found!", string artist = "", string album = "", string usedWord = "Unknown")
+        public Song(string id = "N/A",  string title = "No recording found!", string artist = "", string album = "", string usedWord = "Unknown")
         {
             Id = id;
             Title = title;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -23,7 +20,7 @@ namespace InterviewTask
                 var response = await _httpClient.GetFromJsonAsync<WordResult[]>($"word");
                 return response[0].Word;
             }
-            catch(Exception ex)
+            catch
             {
                 if (numOfRetries >= GlobalConstants.MaxRequestRetries)
                     throw;
@@ -45,7 +42,7 @@ namespace InterviewTask
 
             while(finalWords.Length < numberOfWords)
             {
-                finalWords.Union(await GetRandomWordsAsync(numberOfWords - finalWords.Length));
+                finalWords = finalWords.Union(await GetRandomWordsAsync(numberOfWords - finalWords.Length)).ToArray();
             }
             return finalWords;
         }

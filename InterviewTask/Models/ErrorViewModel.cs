@@ -1,5 +1,3 @@
-using System;
-
 namespace InterviewTask.Models
 {
     public class ErrorViewModel

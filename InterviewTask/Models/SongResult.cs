@@ -24,13 +24,11 @@ namespace InterviewTask
 
     public class ArtistCredit
     {
-        //public string joinphrase { get; set; }
         public string Name { get; set; }
     }
 
     public class Release
     {
-        public string Id { get; set; }
         // Album name
         public string Title { get; set; }
 

@@ -8,7 +8,7 @@
                 return new Song();
 
             string id = result?.Recordings?[0]?.Id;
-            string title = result?.Recordings?[0].Title ?? "Record not found!";
+            string title = result?.Recordings?[0].Title ?? "No recording found!";
             string artist = result?.Recordings?[0].ArtistCredit?[0].Name ?? "Unknown";
             string album = result?.Recordings?[0].Releases?[0].Title ?? "Unknown";
 

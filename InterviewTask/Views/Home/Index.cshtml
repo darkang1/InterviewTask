@@ -16,6 +16,12 @@
     <h3>@ViewBag.ErrorMsg</h3>
 }
 
+@if (ViewBag.Words != null)
+{
+    <p><b>Parsed words:</b></p>
+    <p class="mb-3">@String.Join(", ", ViewBag.Words)</p>
+}
+
 @if (ViewBag.Songs != null)
 {
     <p><b>Parsed songs:</b></p>
