@@ -17,7 +17,7 @@ namespace InterviewTask
         public string Title { get; set; }
         // To get artist name
         [JsonPropertyName("artist-credit")]
-        public ArtistCredit[] Artist_credit { get; set; }
+        public ArtistCredit[] ArtistCredit { get; set; }
         // To get album name
         public Release[] Releases { get; set; }
     }

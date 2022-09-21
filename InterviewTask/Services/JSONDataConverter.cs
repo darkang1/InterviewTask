@@ -9,7 +9,7 @@
 
             string id = result?.Recordings?[0]?.Id;
             string title = result?.Recordings?[0].Title ?? "Record not found!";
-            string artist = result?.Recordings?[0].Artist_credit?[0].Name ?? "Unknown";
+            string artist = result?.Recordings?[0].ArtistCredit?[0].Name ?? "Unknown";
             string album = result?.Recordings?[0].Releases?[0].Title ?? "Unknown";
 
             // Checking if song is found by looking at its song id

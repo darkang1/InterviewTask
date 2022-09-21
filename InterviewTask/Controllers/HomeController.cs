@@ -31,7 +31,6 @@ namespace InterviewTask.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(Models.WebInput model)
         {
-            ViewBag.Num = model.NumOfSongs;
             try
             {
                 string[] parsedWords = await _wordApiService.GetRandomWordsAsync(model.NumOfSongs);
