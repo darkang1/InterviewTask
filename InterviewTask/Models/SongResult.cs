@@ -1,11 +1,9 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace InterviewTask
 {
     public class SongResult
     {
-        public DateTime Created { get; set; }
         public Recording[] Recordings { get; set; }
         public string SerchedWord { get; set; }
     }
