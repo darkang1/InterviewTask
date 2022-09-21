@@ -1,0 +1,41 @@
+﻿@model InterviewTask.Models.WebInput;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <h3><b>Input number of random words to parse</b></h3>
+    <p>(Number should be in range from 5 to 20)</p>
+
+    <input type="number" min="5" max="20" asp-for="NumOfSongs" />
+    <input type="submit" value="Submit" class="mb-3">
+}
+@if (ViewBag.ErrorMsg != null)
+{
+    <h3>@ViewBag.ErrorMsg</h3>
+}
+
+@if (ViewBag.Songs != null)
+{
+    <p><b>Parsed songs:</b></p>
+    <table class="table table-bordered">
+        <tr>
+            <th>Song Title</th>
+            <th>Artist Name</th>
+            <th>Album Name</th>
+            <th>Used Word</th>
+        </tr>
+        @foreach (var song in ViewBag.Songs)
+        {
+            <tr>
+                <td>@song.Title</td>
+                <td>@song.Artist</td>
+                <td>@song.Album</td>
+                <td>@song.UsedWord</td>
+            </tr>
+        }
+    </table>
+
+}
+
